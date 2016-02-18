@@ -25,22 +25,28 @@ ul.nav {
 
 .jumbotron {
 	text-align: center;
-	background-image: url(../images/maple_leaf_2.jpg);
+	background-image: url(../images/maple_leaf_3.jpg);
   background-repeat: no-repeat;
   background-position: center;
 	color: black;
 	padding-bottom: 3px;
+  height: 100vh;
+  min-height: 620px;
+  position: relative;
+  
 }
 
 .top-logo img {
-	margin-bottom: 25px;
+/*	margin-bottom: 25px;*/
+  padding-top: 15vh;
+  padding-bottom: 10px;
 }
 
 .middle-logo img {
-/*	margin-top: 90px;*/
-  margin-top: 0px;
-	margin-bottom: 0;
-  width: 8%
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    margin-left: -75px;
 }
 
 .bottom-logo img {
