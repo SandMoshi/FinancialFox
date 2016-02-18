@@ -1,6 +1,0 @@
-Version 7.0
-
-- Updated the TFSA app to reflect the new $10k/year limit
-- Removed the .exe link for the TFSA app since the .exe used the old limit of $5500/year
-
-Version 

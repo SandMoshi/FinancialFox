@@ -37,7 +37,8 @@ ul.nav {
 }
 
 .middle-logo img {
-	margin-top: 90px;
+/*	margin-top: 90px;*/
+  margin-top: 0px;
 	margin-bottom: 0;
   width: 8%
 }
