@@ -25,22 +25,28 @@ ul.nav {
 
 .jumbotron {
 	text-align: center;
-	background-image: url(../images/maple_leaf_2.jpg);
+	background-image: url(../images/maple_leaf_3.jpg);
   background-repeat: no-repeat;
   background-position: center;
 	color: black;
 	padding-bottom: 3px;
+  height: 100vh;
+  min-height: 620px;
+  position: relative;
+  
 }
 
 .top-logo img {
-	margin-bottom: 25px;
+/*	margin-bottom: 25px;*/
+  padding-top: 15vh;
+  padding-bottom: 10px;
 }
 
 .middle-logo img {
-/*	margin-top: 90px;*/
-  margin-top: 0px;
-	margin-bottom: 0;
-  width: 8%
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    margin-left: -75px;
 }
 
 .bottom-logo img {
@@ -226,7 +232,9 @@ footer p {
   color: black;
 }
 
-
+footer > div > img {
+  width: 100%;
+}
 
 
 /* Responsive styling*/
@@ -239,29 +247,12 @@ footer p {
     right: 10px;
   }
 
-  .middle-logo img {
-  	width: 10%
-  }
-
-  .bottom-logo img {
-  width: 35%;
-  }
-
-}
-
 }
 
 @media (max-width: 992px) {
 
   .top-logo img {
     width: 80%;
-  }
-   .middle-logo img {
-  	width: 15%
-  }
-  
-  .bottom-logo img {
-  width: 30%;
   }
 }
 
@@ -270,12 +261,9 @@ footer p {
   .top-logo img {
     width: 80%
   }
-  .middle-logo img {
-  	width: 20%
-  }
   
-  .bottom-logo img {
-  width: 40%;
+  .jumbotron{
+    min-height: 400px;
   }
 }
 
@@ -283,7 +271,31 @@ footer p {
 	.more-tools img {
 		width: 80%;
 	}
+  
+  #nav_logo_text{
+    /*  We dont want the nabvar text logo to show up on small screens since it wont fit  */
+    display: none;
+  }
+  
+  .top-logo > img {
+      min-width: 320px;
+      left: 0px;
+  }
+  
+  .jumbotron {
+    padding-left:  0px;
+    padding-right: 0px;
+    min-height: 400px;
+  }
+  
+  .container {
+    padding-left:  0px;
+    padding-right: 0px;1
 }
+  .row {
+    margin-right: 15px;
+    margin-left: 15px;
+  
 
 @media (max-width: 400px) {
 
@@ -291,7 +303,7 @@ footer p {
   	margin-bottom: 0px;
   }
 
-  .middle-logo {
+  .middle-logo img{
     margin-top: 0px;
   }
 
