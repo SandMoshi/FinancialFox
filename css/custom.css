@@ -1,0 +1,297 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+.navbar {
+  background-color: black;
+}
+
+ul.nav {
+	font-family: 'Helvetica', courier, serif;
+	font-size: 13px;
+	font-weight: bolder;
+}
+
+.navbar-logo img {
+	position: relative;
+	bottom: 10px;
+	left: 7px;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  color: maroon;
+}
+
+.jumbotron {
+	text-align: center;
+	background-image: url(../images/maple_leaf_2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+	color: black;
+	padding-bottom: 3px;
+}
+
+.top-logo img {
+	margin-bottom: 25px;
+}
+
+.middle-logo img {
+	margin-top: 90px;
+	margin-bottom: 0;
+  width: 8%
+}
+
+.bottom-logo img {
+	margin-top: 0;
+	margin-bottom: 20px;
+	padding: 0;
+	bottom: 20px;
+  width: 20%
+}
+
+.btn-lg {
+	font-size: 36px;
+}
+
+.btn-default {
+  margin-bottom: 15px;
+}
+
+	
+.fa-stack {
+	color: maroon;
+	
+}
+
+#tools-calc {
+  margin-top: 0px;
+}
+
+
+.calculators {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+  padding-top: 10px;
+  padding-bottom: 13px;
+}
+
+.calculators p {
+	text-align: justify-center;
+  display: inline-block;
+}
+
+#FuelSavings {
+  background-image: url(../images/HK_Portland_Street_Night_2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#FuelSavings .container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  padding-bottom: 20px;
+}
+
+#FuelSavings h2 {
+  color: white;
+  font-size: 45px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  text-decoration: underline;
+}
+
+#FuelSavings img {
+  display: inline;
+  padding-bottom: 40px;
+}
+
+#TFSA {
+  background-color: white;
+}
+
+#TFSA .container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+#TFSA h2 {
+  color: maroon;
+  padding-top: 15px;
+  padding-bottom: 45px;
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+#TFSA img {
+  display: inline;
+  padding-bottom: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#TFSA h4 {
+  color: black;
+  font-weight: bolder;
+}
+
+#Balance {
+  background-image: url(../images/The_Peace_Bridge_in_Calgary_an_HDR_2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#Balance .container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  width: 90%;
+}
+
+#balance .calculator {
+  margin-top: 0px;
+}
+
+#Balance h2 {
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+#Balance img {
+  display: inline;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 55px;
+}
+
+
+.more-tools {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.articles {
+	text-align: center;
+  padding-bottom: 45px;
+  position: relative;
+}
+
+.articles p {
+	text-align: justify-center;
+}
+
+
+.books {
+  text-align: left;
+  display: inline;
+  margin: 0px;
+}
+
+.books p {
+  width: 500px;
+}
+
+.fancybox2 {
+  background-color: white;
+}
+
+footer {
+  padding: 10px;
+  background-color: #800000;
+}
+
+footer p {
+  text-align: right;
+  color: white;
+  display:inline;
+  float:right;
+  margin-top: 20px;
+}
+
+#back-to-top {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+#back-to-top a {
+  color: black;
+}
+
+
+
+
+/* Responsive styling*/
+
+@media (max-width: 1452px) {
+
+  .top-logo img {
+    width: 85%;
+    position: relative;
+    right: 10px;
+  }
+
+  .middle-logo img {
+  	width: 10%
+  }
+
+  .bottom-logo img {
+  width: 35%;
+  }
+
+}
+
+}
+
+@media (max-width: 992px) {
+
+  .top-logo img {
+    width: 80%;
+  }
+   .middle-logo img {
+  	width: 15%
+  }
+  
+  .bottom-logo img {
+  width: 30%;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .top-logo img {
+    width: 80%
+  }
+  .middle-logo img {
+  	width: 20%
+  }
+  
+  .bottom-logo img {
+  width: 40%;
+  }
+}
+
+@media (max-width: 545px) {
+	.more-tools img {
+		width: 80%;
+	}
+}
+
+@media (max-width: 400px) {
+
+  .top-logo {
+  	margin-bottom: 0px;
+  }
+
+  .middle-logo {
+    margin-top: 0px;
+  }
+
+}
