@@ -1,4 +1,4 @@
-﻿@import "http://fonts.googleapis.com/css?family=Raleway";
+@import "http://fonts.googleapis.com/css?family=Raleway";
 
 /*---------CURRENCY JQUERY PLUGIN-------*/
 .currency {
@@ -11,10 +11,19 @@
         }
 /*--------------------------------------*/
 
+body{
+  overflow-x: auto !important;
+  margin-left: 12px;
+}
+
+body > div.fancybox-overlay.fancybox-overlay-fixed > div > div > div > div {
+  height: 813px !important;
+}
+
 div#container{
     margin: 0px 0px;
     width: 875px;
-    height:840px;
+    height:780px;
     color:gray;
     background-color:#800000;
     border-radius:20px;
@@ -116,7 +125,7 @@ h1{
     font-size: 16px;
 }
 .MiddleRow{
-    height: 140px;
+/*    height: 140px;*/
     display: block;
 }
 .labelA, .labelB,.labelC{
@@ -172,4 +181,11 @@ h1{
 }
 .currency-input{
     display: inline-block;
+}
+
+hr {
+  border-color: pink;
+  border-width: 1px;
+  width: 90%;
+  margin: 10px auto 10px auto;
 }
