@@ -278,6 +278,6 @@ function isNumber(obj)  //Checks for non numeric characters the obj supplied
 
 $(document).ready(function () {
     $("#Disclaimer").fancybox({
-        width: "90%",
+//        width: "90%",
     });
 });

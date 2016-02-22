@@ -28,14 +28,17 @@ $(document).ready(function () {
         //==========================
         //Get date values from Input BOXES
         Birthdate = new Date($("#birthdate").val());
-                console.log(Birthdate);  //console
+                console.log("Birthdate: " + Birthdate);  //console
         now = new Date();
         MONTH = now.getMonth()+1;
+                console.log("Current month is: " + MONTH);  //console
         DAY = now.getDate();
+                console.log("Current date is: " + DAY);  //console
         thisYear = now.getFullYear();
-
+               console.log("This year is: " + thisYear); //console
+      
         YEAR = Birthdate.getFullYear();
-                console.log(YEAR);  //console
+                console.log("Birth Year:" + YEAR);  //console
 
         if (Birthdate == "")
         {
@@ -60,27 +63,27 @@ $(document).ready(function () {
         withdrawals = $('#WithdrawalsToDate').val();
         year_contribution = $('#ContributionsThisYear').val();
         year_withdrawal = $('#WithdrawalsThisYear').val();
-        console.log(year_contribution);  //console
-        console.log(year_withdrawal);  //console
+            console.log("Contributions to date: " + contributions);  //console
+            console.log("This years contributions: " + year_contribution);  //console
+            console.log("This years withdrawals: " + year_withdrawal);  //console
         //==========================
         //Do some MATH
-        console.log(contributions);  //console
         net_contributions = contributions - withdrawals;
-        console.log(net_contributions);  //console
+            console.log("Net Contributions to Date: " + net_contributions);  //console
         year_net_contributions = year_contribution - year_withdrawal;
+            console.log("This Year's Net Contributions: " + net_contributions);  //console
         //----Calculate some time dependent variables
-               console.log(thisYear);  //console
-        YSI = thisYear - 2009;
+        YSI = thisYear - 2008; //Use 2008 beacuse this way it accounts for 2009 as a year you can contribute
         Age = thisYear - YEAR;
-               console.log(YSI);  //console
-               console.log(Age);  //console
+               console.log("YSI: " + YSI);  //console
+               console.log("Age: " + Age);  //console
 
         var TFSA_Limit = 0;
 
-        if (Age - YSI >= 18) //Already 18 years old at inception (will have max room)
+        if (Age - YSI + 1 >= 18) //Already 18 years old at inception (will have max room)
         {
-            elig_years = thisYear - (YEAR + 18) + 1; //Eligible in 18th year
-            TFSA_Limit = 5000 * 4 + 5500 * 2 + 10000 * (YSI - 6 + 1); //Max TFSA Limit (Includes this Year)
+            elig_years = YSI; //Eligible in 18th year
+            TFSA_Limit = (5000 * 4) + (5500 * 2) + 10000 + (5500 * (YSI - 7)); //Max TFSA Limit (Includes this Year)
         }
         else {
             elig_years = thisYear - (YEAR + 18) + 1; //Eligible in 18th year
@@ -90,23 +93,27 @@ $(document).ready(function () {
                 TFSA_Limit = 0;
                 sweetAlert({
                     title: "Sorry, You are too young!",
-                    text: "You must be 18 years or older to have a TFSA account.",
+                    text: "You must be turning 18 or older this year to have a TFSA account.",
                     type: "error",
                 });
             }
             else {
                 first_year = thisYear - elig_years + 1; //First year you can contribute
+                    console.log("First Year to contribute was: " + first_year);
                 if (first_year > 2012 && first_year <2015) {
-                    TFSA_Limit = 5500 * (2014 - first_year + 1) + 10000 * (thisYear - 2014) ; //$5500 per year
+                    TFSA_Limit = 5500 * (2014 - first_year + 1) + 10000  + (5500 * (thisYear - 2015)) ; //Started at $5500 per year
                 }
-                else if (first_year > 2014) {
-                    TFSA_Limit = 10000 * elig_years; //$10000 per year
+                else if (first_year == 2015) {
+                    TFSA_Limit = 10000 + (5500 * (thisYear - 2015)); //$10000 per year 
                 }
-                else {
-                    TFSA_Limit = 5500 * (thisYear - 2012) + 5000 * (2012 - first_year + 1); //Amount you can contribute (maximum)
+                else if (first_year > 2015) {
+                    TFSA_Limit = (5500 * (thisYear - 2015)); //$10000 per year
                 }
-            }
-        }
+                else if (first_year > 2009 && first_year < 2013) {
+                    TFSA_Limit = 10000 + 5500 * (thisYear - 2012 - 1) + 5000 * (2012 - first_year + 1); //Amount you can contribute (maximum)
+                }
+              }
+            }   
         //---
         //Check to make sure numbers don't include symbols/letters
         NumError = isNumber(contributions);
@@ -177,7 +184,7 @@ $(document).ready(function () {
         //Do some MATH
         TFSA_Limit_Actual = TFSA_Limit - contributions + (withdrawals - year_withdrawal);
         if (elig_years > 0) {
-           Next_TFSA_Limit_Actual = Number(TFSA_Limit_Actual) + Number(year_withdrawal) + Number(10000); // Next year your limit
+           Next_TFSA_Limit_Actual = Number(TFSA_Limit_Actual) + Number(year_withdrawal) + Number(5500); // Your next year's limit
         }
         else
         {
@@ -185,13 +192,29 @@ $(document).ready(function () {
         }
         //==========================
         //Rounding and Formatting
-        TFSA_Limit = '$' + TFSA_Limit.toFixed(2); //Editing of initial TFSA limit
         console.log(TFSA_Limit_Actual);  //console
-        TFSA_Limit_Actual = '$' + TFSA_Limit_Actual.toFixed(2);           //Rounds to 2 decimals
+        if (TFSA_Limit % 1 === 0){ /*Removes decimals if whole number*/
+          TFSA_Limit = '$' + TFSA_Limit.toFixed(0); //Editing of initial TFSA limit
+        }
+        else{
+        TFSA_Limit = '$' + TFSA_Limit.toFixed(2); //Editing of initial TFSA limit
+        }
+        //---------
         console.log(Next_TFSA_Limit_Actual);  //console
-        Next_TFSA_Limit_Actual = '$' + Next_TFSA_Limit_Actual.toFixed(2); //Rounds to 2 decimals
-
-
+        if (TFSA_Limit_Actual % 1 === 0){  /*Removes decimals if whole number*/
+          TFSA_Limit_Actual = '$' + TFSA_Limit_Actual.toFixed(0); //Editing of initial TFSA limit    
+        }
+        else {
+          TFSA_Limit_Actual = '$' + TFSA_Limit_Actual.toFixed(2);           //Rounds to 2 decimals
+        }
+        //---------
+        if (Next_TFSA_Limit_Actual % 1 === 0){ /*Removes decimals if whole number*/
+          Next_TFSA_Limit_Actual = '$' + Next_TFSA_Limit_Actual.toFixed(0); //Editing of initial TFSA limit
+        }
+        else {
+          Next_TFSA_Limit_Actual = '$' + Next_TFSA_Limit_Actual.toFixed(2); //Rounds to 2 decimals
+        }
+      
         //==========================
         //Output values to boxes
         $("#output_MaxTFSA").val(TFSA_Limit);

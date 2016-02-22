@@ -25,7 +25,7 @@ ul.nav {
 
 .jumbotron {
 	text-align: center;
-	background-image: url(../images/maple_leaf_3.jpg);
+	background-image: url(../images/maple_leaf_4.jpg);
   background-repeat: no-repeat;
   background-position: center;
 	color: black;
@@ -233,7 +233,7 @@ footer p {
 }
 
 footer > div > img {
-  width: 100%;
+  width: 30%;
 }
 
 
@@ -265,6 +265,7 @@ footer > div > img {
   .jumbotron{
     min-height: 400px;
   }
+  
 }
 
 @media (max-width: 545px) {
@@ -306,5 +307,8 @@ footer > div > img {
   .middle-logo img{
     margin-top: 0px;
   }
-
+  
+  footer > div > img {
+    width: 100%;
+  }
 }

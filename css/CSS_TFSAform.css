@@ -1,4 +1,4 @@
-﻿@import "http://fonts.googleapis.com/css?family=Raleway";
+@import "http://fonts.googleapis.com/css?family=Raleway";
 
 div#container{
     margin: 0px 0px;
@@ -118,12 +118,14 @@ h4{
     text-align: right;
     display:inline;
     float: right;
+    font-size: 14px;
 }
 #Disclaimer{
     display: inline;
     padding-left: 20px;
     color:white;
     cursor:pointer;
+    font-family: '', sans-serif;
 
 }
 .fancybox-skin{

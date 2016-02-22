@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 $(".navbar-collapse ul li a[href^='#']").on('click', function(e) {
 
    // prevent default anchor click behavior
@@ -68,12 +70,14 @@ $("#back-to-top a[href^='#']").on('click', function(e) {
 
    // animate
    $('html, body').animate({
-       scrollTop: $(hash).offset().top - 70
-     }, 600, function(){
+       scrollTop: $(hash).offset().top
+     }, 1000, function(){
 
        // when done, add hash to url
        // (default click behaviour)
        window.location.hash = hash;
      });
 
+});
+  
 });
