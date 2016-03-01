@@ -451,18 +451,6 @@ This is the Javacript and Jquery code for the provincial income app. All the scr
 });
 //--------------------
 //--------------------
-	 
-//--------------------
-  //This will make the middle section appear once Calculate is clicked
-  $("#calculate").on("click", function(){
-    if ( $("#bottom").is(":hidden")){
-        $("#window").css("margin-top","14vh");
-        $("#bottom").slideDown("slow");
-    }
-	 
-  });
-
-//--------------------
 //This function converts the number to currency formatting (commas)
   function commaSeparateNumber(val){
     console.log("Input number is: " + val);
@@ -470,6 +458,17 @@ This is the Javacript and Jquery code for the provincial income app. All the scr
     console.log("This number now looks like this: " + val);
     return val;
   }
+//--------------------
+	 
+//--------------------
+  //This will make the middle section appear once Calculate is clicked
+  $("#calculate").on("click", function(){
+    if ( $("#bottom").is(":hidden")){
+        $("#bottom").slideDown("slow");
+        $("#window").css("margin-top","11vh");
+    }
+  });
+
 
 
 

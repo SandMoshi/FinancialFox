@@ -25,11 +25,11 @@ form{
   min-width: 500px;
   background: #1C578F;
   border-radius: 0px;
-  max-height: 660px;
+  max-height: 700px;
   padding-bottom: 1px;
   width: 90vw;
   margin: auto;
-  margin-top: 25vh;
+  margin-top: 20vh;
   border-top: medium solid #75C809;
 }
 
@@ -157,6 +157,13 @@ h2{
 h4{
   text-align: center;
   color: #5BC0DE;
+}
+
+.offer_title{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #75C809;
 }
 
 #Disclaimer {
