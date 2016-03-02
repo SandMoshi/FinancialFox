@@ -173,8 +173,8 @@ $(".fancybox_ContactUs").fancybox({
 $(".fancybox_offer").fancybox({
     autoDimensions: false,
     padding      : 0,
-    width        : '100%',
-    height       : '100%',
+    width        : '90%',
+    height       : '90%',
     autoScale     : false,
     fitToView : false,
     autoSize : false,
