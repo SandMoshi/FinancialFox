@@ -1,4 +1,7 @@
 // JavaScript source code
+
+
+
 $(document).ready(function () {
     $(".fancybox").fancybox({
         type: 'image',
@@ -166,3 +169,40 @@ $(".fancybox_ContactUs").fancybox({
         });
     }
 });
+
+$(".fancybox_offer").fancybox({
+    autoDimensions: false,
+    padding      : 0,
+    width        : '90%',
+    height       : '90%',
+    autoScale     : false,
+    fitToView : false,
+    autoSize : false,
+    transitionIn  : 'none',
+    transitionOut : 'none',
+    type: 'iframe',
+//    padding: 1,
+    title: null,
+    helpers: {
+        overlay: { 'closeClick': false }
+    },
+    keys: {
+        close: null //prevent ESC from closing it
+    },
+    afterShow: function () {
+        $(".fancybox-close").unbind();
+        $(".fancybox-close").click(function () { // create own click event
+            sweetAlert({
+                title: "Are You Sure You want to Close?",
+                text: "All your data will be lost.",
+                confirmButtonText: "Yes, Exit.",
+                showCancelButton: true,
+                type: "warning",
+            },
+               function () {
+                   $.fancybox.close();
+               });
+        });
+    }
+});
+
