@@ -25,6 +25,7 @@ $(document).ready(function () {
         var YOB;
         var Age;
         var Birthdate;
+        var BirthMonth; var BirthDay;
         var now;
         var NumError;
         var money_inputs = [contributions, withdrawals, year_contribution,year_withdrawal];
@@ -34,6 +35,12 @@ $(document).ready(function () {
         Birthdate = new Date($("#birthdate").val());
                 console.log("Birthdate: " + Birthdate);  //console
         now = new Date();
+      
+        BirthMonth = Birthdate.getMonth()+1;
+        BirthDay = Birthdate.getDate();
+                console.log("Birth Month is " + BirthMonth);
+                console.log("Birth Day is " + BirthDay);
+  
         MONTH = now.getMonth()+1;
                 console.log("Current month is: " + MONTH);  //console
         DAY = now.getDate();
@@ -44,6 +51,12 @@ $(document).ready(function () {
         YEAR = Birthdate.getFullYear();
                 console.log("Birth Year:" + YEAR);  //console
 
+        if (BirthMonth == "12" && BirthDay == "31"){
+          BirthMonth = 1;
+          BirthDay = 1;
+          YEAR = YEAR + 1;
+                console.log("Birth Year is " + YEAR);
+        }
         if (Birthdate == "")
         {
             sweetAlert({
@@ -229,6 +242,7 @@ $(document).ready(function () {
         $("#output_TFSAfuture").val(Next_TFSA_Limit_Actual);
         //==========================
         //==========================
+        UpdateMessage(TFSA_Limit_Actual);
         DropDown();
     });
 });
@@ -275,8 +289,19 @@ function DropDown(){
 
 
 function UpdateText(){
-  
+          var now  = new Date();
+          var thisYear = now.getFullYear();
+          var nextYear = thisYear + 1;
+          $("#thisyear1").text(thisYear + " TFSA Deposits:");
+          $("#thisyear2").text(thisYear + " TFSA Withdrawals:");
+          $("#thisyear3").text(thisYear + " Remaining Contribution Room:");
+          $("#nextyear1").text(nextYear + " Remaining Contribution Room:");
+   
 };
+
+function UpdateMessage(val){
+  $("#outputmessage").text("You can contribute " + val + " more this year!");
+}
 
 
 

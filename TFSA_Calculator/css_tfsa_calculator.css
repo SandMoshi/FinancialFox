@@ -29,7 +29,7 @@ form{
   padding-bottom: 1px;
   width: 90vw;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 5vh;
   border-top: medium solid #75C809;
 }
 
@@ -202,4 +202,9 @@ h4{
 
 #Disclaimer:hover , #DisclaimerText:hover {
   cursor: pointer;
+}
+
+a #moreinfo:hover {
+  text-decoration: underline;
+  color: white;
 }
