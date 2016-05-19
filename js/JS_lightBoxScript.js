@@ -74,7 +74,7 @@ $(document).ready(function () {
     });
 });
 
-$(".fancybox_TFSA").fancybox({
+/*$(".fancybox_TFSA").fancybox({
     //type: 'image',
     width: "520",
     height: "725",
@@ -104,7 +104,7 @@ $(".fancybox_TFSA").fancybox({
                });
         });
     }
-});
+});*/
 
 $(".fancybox_FuelSavings").fancybox({
     //type: 'image',
@@ -247,3 +247,40 @@ else{
   });  
 }
 
+
+$(".fancybox_tfsa").fancybox({
+    autoDimensions: false,
+    padding      : 0,
+    width        : '90%',
+    height       : '90%',
+	   maxHeight   : 800,
+    autoScale     : false,
+    fitToView : false,
+    autoSize : false,
+    transitionIn  : 'none',
+    transitionOut : 'none',
+    type: 'iframe',
+//    padding: 1,
+    title: null,
+    helpers: {
+        overlay: { 'closeClick': false }
+    },
+    keys: {
+        close: null //prevent ESC from closing it
+    },
+    afterShow: function () {
+        $(".fancybox-close").unbind();
+        $(".fancybox-close").click(function () { // create own click event
+            sweetAlert({
+                title: "Are You Sure You want to Close?",
+                text: "All your data will be lost.",
+                confirmButtonText: "Yes, Exit.",
+                showCancelButton: true,
+                type: "warning",
+            },
+               function () {
+                   $.fancybox.close();
+               });
+        });
+    }
+});
