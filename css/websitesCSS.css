@@ -84,5 +84,7 @@ hr {
   .right-side p{
     padding: 25px 10%;
   }
-  
+  	h2{
+		font-size: xx-large;
+	}
 } 

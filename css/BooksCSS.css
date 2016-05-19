@@ -75,6 +75,7 @@ hr {
 @media (max-width:990px){
    .logo { 
      margin-top: 30px;
+				 max-width: 100%;
    } 
   .right-side p{
     padding: 0px 5px;
@@ -87,5 +88,7 @@ hr {
   .right-side > p.author{
     text-align: center;
   }
-  
+  	h2{
+		font-size: xx-large;
+	}
 } 
