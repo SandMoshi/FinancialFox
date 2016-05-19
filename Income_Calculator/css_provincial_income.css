@@ -29,7 +29,7 @@ form{
   padding-bottom: 1px;
   width: 90vw;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 15vh;
   border-top: medium solid #75C809;
 }
 
@@ -174,4 +174,42 @@ h4{
 
 #Disclaimer:hover {
   cursor: pointer;
+}
+
+a>h4:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 991px){
+  #window{
+    max-width: none;
+    min-width: 300px;
+    width: 100vw;
+    margin-top: 0px;
+    margin-right: 0px;
+    max-height: none;
+    margin-top: none;
+    border: 3px solid #337ab7;
+  }
+  
+  label{
+    margin: 5px;
+    text-align: center;
+  }
+  
+  .row{
+    padding: 0px 5%;
+    margin: 0px;
+  }
+  
+  .left_side{
+    padding-left: 5%;
+    border-bottom: medium dashed #75C809;
+    border-right: none;
+  }
+  
+  #output_message{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
