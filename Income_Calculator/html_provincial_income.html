@@ -8,7 +8,8 @@
 
 <body>
   <!-- Stylesheets -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="/Income_Calculator/css_provincial_income.css" rel="stylesheet">
     
     <!-- Fonts-->
@@ -23,7 +24,7 @@
       <form>
        <fieldset id="top">
         <div class="row">
-             <div class="col-xs-6 left_side">
+             <div class="col-xs-12 col-md-6 left_side">
               <h4 class="offer_title">One</h4>
               <label for="province1">Province:</label>
               <select name="province1" id="province1">
@@ -47,7 +48,7 @@
                <input type="checkbox" name="paytype1" value="Salary"><label class="box">Salary</label>
                <input type="checkbox" name="paytype1" value="Hourly"><label class="box">Hourly</label>
             </div>
-            <div class="col-xs-6 right_side">
+            <div class="col-xs-12 col-md-6 right_side">
               <h4 class="offer_title">Two</h4>
               <label for="province2">Province:</label>
               <select name="province2" id="province2">
@@ -75,13 +76,15 @@
         </fieldset>
         <fieldset id="bottom">  
          <div class="row">
-          <div class="col-xs-6 left_side">
+          <div class="col-xs-12 col-md-6 left_side">
+             <h4 id="job1_details"></h4>
              <label for="taxes1">Total Taxes Paid:</label>
              <output name="taxes1"></output>
              <label for="netincome1">Annual Net Pay:</label>
              <output name="netincome1"></output>
           </div>
-          <div class="col-xs-6 right_side">
+          <div class="col-xs-12 col-md-6 right_side">
+             <h4 id="job2_details"></h4>
              <label for="taxes2">Total Taxes Paid:</label>
              <output name="taxes2"></output>
              <label for="netincome2">Annual Net Pay:</label>
@@ -99,7 +102,8 @@
     </div>
   
   <!--  Java Script and Jquery Extensions-->
-  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <!--  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
+  <script src="../js/jquery-1.12.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
   <script src="/Income_Calculator/js_provincial_income.js"></script>
   <!--  Sweetalert -->

@@ -465,7 +465,16 @@ This is the Javacript and Jquery code for the provincial income app. All the scr
   $("#calculate").on("click", function(){
     if ( $("#bottom").is(":hidden")){
         $("#bottom").slideDown("slow");
-        $("#window").css("margin-top","11vh");
+      if($(window).width() < 992){
+        //do nothing to margin to of #window
+        //Show which Job each of the "details" is for
+        var ProvinceName1 = $("select[name=province1]").find(":selected").text();
+        var ProvinceName2 = $("select[name=province2]").find(":selected").text();
+        $("#job1_details").html(ProvinceName1);
+        $("#job2_details").html(ProvinceName2);
+      }
+      else
+        $("#window").css("margin-top","10vh");
     }
   });
 
@@ -474,6 +483,17 @@ This is the Javacript and Jquery code for the provincial income app. All the scr
 
 //This will make the disclaimer popup
    document.getElementById("Disclaimer").onclick = function () {
-       sweetAlert("", "This is an unofficial calculator, it is the user's responsibility to ensure the calculations are accurate.\n\nThe user is responsible for confirming the accuracy of this program's results. It is the user's responsibility to verify the taxes they will owe with the CRA (Canada Revenue Agency) before making any decisions. This tool is meant to be used as an educational tool only. From time to time, this application may become outdated as the tax-laws change. It is the user's responsibilty to double check the numbers given by this tool.\n\nThis tool does not take into account rebates, grants, spousal income, etc.\n\nBy using this website and all the tools and information found within, the user agrees that FinancialFox.ca and it's operators are not responsible or liable for anything.\n\nCreated for www.financialfox.ca \u00A9 2016")
+       sweetAlert({title:"Disclaimer", text:"This is an unofficial calculator, it is the user's responsibility to ensure the calculations are accurate.\n\nThe user is responsible for confirming the accuracy of this program's results. It is the user's responsibility to verify the taxes they will owe with the CRA (Canada Revenue Agency) before making any decisions. This tool is meant to be used as an educational tool only. From time to time, this application may become outdated as the tax-laws change. It is the user's responsibilty to double check the numbers given by this tool.\n\nThis tool does not take into account rebates, grants, spousal income, etc.\n\nBy using this website and all the tools and information found within, the user agrees that FinancialFox.ca and it's operators are not responsible or liable for anything.\n\nCreated for www.financialfox.ca \u00A9 2016", allowOutsideClick: "true", allowEscapeKey:"true", showConfirmButton:"false"})
    };
+   $("#Disclaimer").on("click", function(){
+     if($(window).width() < 992){
+        $(".sweet-alert").css({
+          position : "absolute",
+          top: 0,
+          "margin-top": "10px"});
+        $(".sweet-alert h2").css({
+          margin: "0px 0px 10px 0px"
+        });
+      };
+   });
 //----------------------------
