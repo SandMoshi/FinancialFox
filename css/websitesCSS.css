@@ -12,18 +12,25 @@ body {
 
 
 
-.col-sm-6 {
+.left-side{
+  text-align: center;
+}
+
+.right-side {
 	display: inline-block;
 	margin: 0;
 	text-align: center;
 }
 
-.col-sm-6 p {
-	position: relative;
-	right: 30px;
+.right-side p {
 	color: black;
 	padding-top: 50px;
 	padding-bottom: 50px;
+    text-align: center;
+}
+
+.right-side p b:first-child{
+   font-size: 20px;
 }
 
 hr {
@@ -50,6 +57,7 @@ hr {
 
 .moustache {
 	margin-top: 73px;
+    border-radius: 20px;
 }
 
 
@@ -60,3 +68,21 @@ hr {
 .ynab {
 	margin-top: 45px;
 }
+
+@media (max-width:800px){
+   .logo { 
+     margin-top: 20px;
+     max-width: 100%;
+   }   
+} 
+
+@media (max-width:990px){
+   .logo { 
+     margin-top: 30px;
+     max-width: 100%;
+   } 
+  .right-side p{
+    padding: 25px 10%;
+  }
+  
+} 
