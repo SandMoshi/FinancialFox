@@ -176,7 +176,7 @@ if($(window).width() < 992){
     autoDimensions: false,
     padding      : 0,
     width        : '100%',
-    height       : '100%',
+//    height       : '100%',
     autoScale     : false,
     fitToView : true,
     autoSize : true,
