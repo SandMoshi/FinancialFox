@@ -247,8 +247,83 @@ else{
   });  
 }
 
-
-$(".fancybox_tfsa").fancybox({
+if($(window).width() < 375){
+ $(".fancybox_tfsa").fancybox({
+    autoDimensions: false,
+    padding      : 0,
+    margin: 0,
+    width        : '100%',
+//    height       : '100%',
+    autoScale     : false,
+    fitToView : true,
+    autoSize : false,
+    transitionIn  : 'none',
+    transitionOut : 'none',
+    type: 'iframe',
+    title: null,
+    helpers: {
+        overlay: { 'closeClick': true }
+    },
+    keys: {
+        close: null //prevent ESC from closing it
+    },
+    afterShow: function () {
+        $(".fancybox-close").unbind();
+        $(".fancybox-close").click(function () { // create own click event
+            sweetAlert({
+                title: "Are You Sure You want to Close?",
+                text: "All your data will be lost.",
+                confirmButtonText: "Yes, Exit.",
+                showCancelButton: true,
+                type: "warning",
+            },
+               function () {
+                   $.fancybox.close();
+               });
+        });
+    }
+});
+ 
+}
+else if($(window).width() < 992){
+ $(".fancybox_tfsa").fancybox({
+    autoDimensions: false,
+    padding      : 0,
+    width        : '100%',
+//    height       : '100%',
+    autoScale     : false,
+    fitToView : true,
+    autoSize : true,
+    transitionIn  : 'none',
+    transitionOut : 'none',
+    type: 'iframe',
+//    padding: 1,
+    title: null,
+    helpers: {
+        overlay: { 'closeClick': false }
+    },
+    keys: {
+        close: null //prevent ESC from closing it
+    },
+    afterShow: function () {
+        $(".fancybox-close").unbind();
+        $(".fancybox-close").click(function () { // create own click event
+            sweetAlert({
+                title: "Are You Sure You want to Close?",
+                text: "All your data will be lost.",
+                confirmButtonText: "Yes, Exit.",
+                showCancelButton: true,
+                type: "warning",
+            },
+               function () {
+                   $.fancybox.close();
+               });
+        });
+    }
+});
+ 
+}
+else{ $(".fancybox_tfsa").fancybox({
     autoDimensions: false,
     padding      : 0,
     width        : '90%',
@@ -283,4 +358,5 @@ $(".fancybox_tfsa").fancybox({
                });
         });
     }
-});
+ });
+}

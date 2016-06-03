@@ -82,7 +82,7 @@ output{
   width: 70%;
   min-width: 100px;
   margin: 6px auto 0px auto;
-  text-align: middle;
+  text-align: center;
 }
 
 #birthdate {
@@ -207,4 +207,89 @@ h4{
 a #moreinfo:hover {
   text-decoration: underline;
   color: white;
+}
+
+
+@media (max-width:800px){
+  #window{
+    margin-top: 10px;
+  }
+  #birthdate{
+  }
+}
+
+@media (max-width:550px){
+  #window{
+    min-width: 320px;
+    width: 100vw;
+    margin: auto;
+/*    margin: 0px;*/
+  }
+  
+  .left_side{
+    padding: 0px;
+  }
+  .right_side{
+    padding: 0px 5px 0px 5px;
+    text-align: left;
+  }
+  .calculate{
+    margin-bottom: 40px;
+  }
+  #DisclaimerText{
+    bottom: -40px;
+  }
+  #Disclaimer{ 
+    bottom: -29px;
+  }
+  #birthdate{
+    margin-left: -59px;
+    min-width: 171px;
+    padding-left: 5px;
+  }
+  input{
+    width: 90px;
+    min-width: 70px;
+    margin-left: -25px;
+  }
+  label{
+    font-weight: 400;
+  }
+  .currency{
+    margin-right: 16px;
+    padding: 9px 8px 7px 8px;
+  }
+  
+  output{
+/*    padding-left: 5px;*/
+    text-align: center;
+    margin: 6px 5px 0px 0px;
+    font-size: 14px;
+    min-width: 88px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  
+  #bottom .right_side{
+    padding-left: 0px;
+  }
+  
+}
+
+
+@media (max-width:400px){
+  #window{
+    min-width: 310px;
+    margin: auto;
+  }
+  h4{
+    font-size: 14px;
+  }
+  h2{
+    font-size: 15px;
+  }
+  body{
+    font-size: 12px;
+  }
 }
