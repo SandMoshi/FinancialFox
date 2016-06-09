@@ -1,6 +1,24 @@
 // JavaScript source code
 $(document).ready(function () {
-    $("#button_calculate").click(function main() {
+	
+	var page = 1 //Set the page to 1
+	
+	$("#continue").click(function(){
+		if (page = 1){
+			CreatePage2();
+		}
+		var oldpage = page; //store the current page number
+		page += 1; //Increase page number
+		TurnPage(oldpage, page); //Run the function that chances the page
+	});
+	
+    
+	
+	
+    UpdateText(); //This will update the app text to show the proper current year 
+  
+  
+    $("#calculate").click(function main() {
         //Initialize Variables and Arrays
         var DAY;
         var MONTH;
@@ -21,6 +39,7 @@ $(document).ready(function () {
         var YOB;
         var Age;
         var Birthdate;
+        var BirthMonth; var BirthDay;
         var now;
         var NumError;
         var money_inputs = [contributions, withdrawals, year_contribution,year_withdrawal];
@@ -30,6 +49,12 @@ $(document).ready(function () {
         Birthdate = new Date($("#birthdate").val());
                 console.log("Birthdate: " + Birthdate);  //console
         now = new Date();
+      
+        BirthMonth = Birthdate.getMonth()+1;
+        BirthDay = Birthdate.getDate();
+                console.log("Birth Month is " + BirthMonth);
+                console.log("Birth Day is " + BirthDay);
+  
         MONTH = now.getMonth()+1;
                 console.log("Current month is: " + MONTH);  //console
         DAY = now.getDate();
@@ -40,6 +65,12 @@ $(document).ready(function () {
         YEAR = Birthdate.getFullYear();
                 console.log("Birth Year:" + YEAR);  //console
 
+        if (BirthMonth == "12" && BirthDay == "31"){
+          BirthMonth = 1;
+          BirthDay = 1;
+          YEAR = YEAR + 1;
+                console.log("Birth Year is " + YEAR);
+        }
         if (Birthdate == "")
         {
             sweetAlert({
@@ -47,6 +78,7 @@ $(document).ready(function () {
                 text: "Please choose a birthdate.",
                 type: "error",
             });
+            return false;
         }
         else if (Birthdate == "Invalid Date")
         {
@@ -55,6 +87,7 @@ $(document).ready(function () {
                 text: "Please check your birthdate.",
                 type: "error",
             });
+            return false;
         }
        
         //==========================
@@ -96,6 +129,7 @@ $(document).ready(function () {
                     text: "You must be turning 18 or older this year to have a TFSA account.",
                     type: "error",
                 });
+                return false;
             }
             else {
                 first_year = thisYear - elig_years + 1; //First year you can contribute
@@ -222,6 +256,8 @@ $(document).ready(function () {
         $("#output_TFSAfuture").val(Next_TFSA_Limit_Actual);
         //==========================
         //==========================
+        UpdateMessage(TFSA_Limit_Actual);
+        DropDown();
     });
 });
 
@@ -236,3 +272,99 @@ function isNumber(obj)  //Checks for non numeric characters the obj supplied
         return "error";
     }
 };
+
+//--------------------
+//--------------------
+//This function converts the number to currency formatting (commas)
+  function commaSeparateNumber(val){
+    console.log("Input number is: " + val);
+     val = "$" + val.toFixed(0).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    console.log("This number now looks like this: " + val);
+    return val;
+  }
+//--------------------
+//	 
+function DropDown(){
+    if ( $("#bottom").is(":hidden")){
+        $("#bottom").slideDown("slow");
+        $("#window").css("margin-top","11vh");
+	  if ($(window).height() < 690){
+			$("#window").css("margin-top","0px");
+	   }
+	  else{
+			//This will re-center the window
+	        $('#window').css('margin-top','60px'); //previously 11vh
+	  }
+    }
+	
+};
+
+
+//--------------------
+//  //This will make the middle section appear once Calculate is clicked
+//  $("#calculate").on("click", function(){
+//    if ( $("#bottom").is(":hidden")){
+//        $("#bottom").slideDown("slow");
+//        $("#window").css("margin-top","11vh");
+//    }
+//  });
+
+
+function UpdateText(){
+          var now  = new Date();
+          var thisYear = now.getFullYear();
+          var nextYear = thisYear + 1;
+          $("#thisyear1").text(thisYear + " TFSA Deposits:");
+          $("#thisyear2").text(thisYear + " TFSA Withdrawals:");
+          $("#thisyear3").text(thisYear + " Remaining Contribution Room:");
+          $("#nextyear1").text(nextYear + " Remaining Contribution Room:");
+   
+};
+
+function UpdateMessage(val){
+  $("#outputmessage").text("You can contribute " + val + " more this year!");
+}
+
+
+
+//This will make the disclaimer popup
+   document.getElementById("Disclaimer").onclick = function () {
+       sweetAlert({title:"", text:"This is an unofficial calculator, it is the user's responsibility to ensure the calculations are accurate.\n\nThe user is responsible for confirming the accuracy of this program's results. It is the user's responsibility to verify the most up to date TFSA limits with the CRA (Canada Revenue Agency) before making any decisions. This tool is meant to be used as an educational tool only. From time to time, this application may become outdated as the years or laws change. It is the user's responsibilty to double check the numbers given by this tool.\n\nThis tool does not take into account overcontributions, fees, or any data not inputted.\n\nBy using this website and all the tools and information found within, the user agrees that FinancialFox.ca and it's operators are not responsible or liable for anything.\n\nCreated for www.financialfox.ca \u00A9 2016",allowOutsideClick: "true", allowEscapeKey:"true",})
+   };
+   document.getElementById("DisclaimerText").onclick = function () {
+       sweetAlert({title:"", text:"This is an unofficial calculator, it is the user's responsibility to ensure the calculations are accurate.\n\nThe user is responsible for confirming the accuracy of this program's results. It is the user's responsibility to verify the most up to date TFSA limits with the CRA (Canada Revenue Agency) before making any decisions. This tool is meant to be used as an educational tool only. From time to time, this application may become outdated as the years or laws change. It is the user's responsibilty to double check the numbers given by this tool.\n\nThis tool does not take into account overcontributions, fees, or any data not inputted.\n\nBy using this website and all the tools and information found within, the user agrees that FinancialFox.ca and it's operators are not responsible or liable for anything.\n\nCreated for www.financialfox.ca \u00A9 2016", allowOutsideClick: "true", allowEscapeKey:"true",})
+   };
+//----------------------------
+
+function TurnPage(oldpage, nextpage ){
+	var pageIdOld = "#page" + oldpage; //create ID that will be used to call the page
+	var pageId = "#page" + nextpage;
+	
+	$(pageIdOld).fadeOut("400", function(){
+		$(pageId).fadeIn("400");
+	});
+};
+
+function CreatePage2(){
+	//Determine number of items
+	var items = $("#itemcounter").val();
+	for (i=1; i <= items; i++){
+		var idname = "item_name" + i;
+		var DOMcode = "<input id=" + idname + " type=\"text\" class=\"itemname\" placeholder=\"Name of Item " + i + "\" title=\"Give this item a nickname. (Optional)\" />";
+		$(DOMcode).appendTo("#page2");
+	}
+	//If too many items, space them out into 2 columns
+	if (items >= 9){ 
+		$("#scrollicon").css({"display":"block","position": "absolute", "bottom": "70px", "right": "35px", "color": "red"});
+		
+	}
+	
+}
+
+
+//----------------------------
+//----------------------------
+//----------------------------
+//----------------------------
+//----------------------------
+//----------------------------

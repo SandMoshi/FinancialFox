@@ -274,10 +274,15 @@ function DropDown(){
     if ( $("#bottom").is(":hidden")){
         $("#bottom").slideDown("slow");
         $("#window").css("margin-top","11vh");
+	  if ($(window).height() < 690){
+			$("#window").css("margin-top","0px");
+	   }
+	  else{
+			//This will re-center the window
+	        $('#window').css('margin-top','60px'); //previously 11vh
+	  }
     }
 	
-	   //This will re-center the window
-	 	$('#window').css('margin-top','60px'); //previously 11vh
 };
 
 

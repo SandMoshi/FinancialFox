@@ -10,7 +10,7 @@
   <!-- Stylesheets -->
 <!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="css_tfsa_calculator.css" rel="stylesheet">
+    <link href="css_rebalance_calculator.css" rel="stylesheet">
     
     <!-- Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700' rel='stylesheet' type='text/css'>
@@ -20,14 +20,25 @@
   <!-- - -->
     <div id="window" class="">
       <div id="banner_top" class="row">
-        <h1><span style="font-size:40px;">Tfsa</span> Calculator</h1>
-        <h4 id="subbanner">Determine your contribution room!</h4>
+        <h1><span style="font-size:40px;">Portfolio Balancing</h1>
+        <h4 id="subbanner">Get your portfolio back on track!</h4>
       </div>
       <form>
-       <fieldset id="top">
-        <div class="row">
-             <h4 class="offer_title">Required Information:</h4>
-             <div class="col-xs-7 left_side">
+       <fieldset id="page1" class="page">
+        <div>
+             <h3 class="offer_title">First, tell us about your portfolio...</h3>
+			 <p class="instruction">How many items are in your portfolio?</p>
+			 <input id="itemcounter" type="number" min="2" value="2" step="1" max="100" required></input>
+		</div>
+        </fieldset>
+		<!-- Page 2 -->
+  	    <fieldset id="page2" class="page" style="display:none; display:none;">
+			<p class="instruction">Please give each item a name:</p>
+			<p id="scrollicon" style="display:none;">Scroll Down</p>
+	    </fieldset>
+		<button id="continue" type="button" class="btn btn-info continue">Next</button>
+<!--     --- BOTTOM HALF --- HIDDEN INITIALLY --- BOTTOM HALF  --- BOTTOM HALF --- HIDDEN INITIALLY --- BOTTOM HALF -->
+                    <!-- <div class="col-xs-7 left_side">
               <label for="birthdate">Birthdate:</label>
                <label for="ContributionsToDate">TFSA Deposits to Date:</label>
                <label for="WithdrawalsToDate">TFSA Withdrawals to date:</label>
@@ -75,9 +86,7 @@
                <br>
             
           </div>
-        </div>
-        </fieldset>
-<!--     --- BOTTOM HALF --- HIDDEN INITIALLY --- BOTTOM HALF  --- BOTTOM HALF --- HIDDEN INITIALLY --- BOTTOM HALF -->
+        </div> -->
         <fieldset id="bottom">  
          <div class="row">
           <div class="col-xs-8 col-sm-7 left_side">
@@ -104,9 +113,12 @@
              You can contribute $--- more this year!</h2>
           <a id="moreinfo" href="http://www.cra-arc.gc.ca/tfsa/" target="_blank"><h4>For more TFSA details click here.</h4></a>
         </fieldset>
-        <button id="calculate" type="button" class="btn btn-info calculate">Calculate</button>
-        <h4 id="DisclaimerText">Disclaimer</h4>
-        <img id="Disclaimer" src="../images/info.svg" alt="Disclaimer" title="disclaimer">
+		
+        
+		<button id="calculate" type="button" class="btn btn-info calculate">Calculate</button>
+		<h4 id="DisclaimerText">Disclaimer</h4>
+		<img id="Disclaimer" src="../images/info.svg" alt="Disclaimer" title="disclaimer">
+
       </form>
     </div>
   
@@ -119,6 +131,6 @@
   <link rel="stylesheet" href="../lib/sweet-alert.css" type="text/css">
   <script src="../lib/sweet-alert.min.js"></script>
   
-  <script src="../TFSA_Calculator/js_tfsa_calculator.js"></script>
+  <script src="../Rebalance_Calculator/js_rebalance_calculator.js"></script>
 </body>
 </html>

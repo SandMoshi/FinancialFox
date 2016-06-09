@@ -474,7 +474,12 @@ This is the Javacript and Jquery code for the provincial income app. All the scr
         $("#job2_details").html(ProvinceName2);
       }
       else
-        $("#window").css("margin-top","10vh");
+		if ($(window).width() > 900){
+			$("#window").css("margin-top","10vh");
+		}
+		if ($(window).height() < 900){
+           $("#window").css("margin-top","5vh");
+		}
     }
   });
 

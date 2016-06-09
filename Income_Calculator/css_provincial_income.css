@@ -176,26 +176,24 @@ h4{
   cursor: pointer;
 }
 
-a>h4:hover {
-  cursor: pointer;
-}
-
 @media (max-width: 991px){
   #window{
     max-width: none;
     min-width: 300px;
     width: 100vw;
     margin-top: 0px;
-    margin-right: 0px;
     max-height: none;
-    margin-top: none;
     border: 3px solid #337ab7;
   }
   
   label{
     margin: 5px;
     text-align: center;
-  }
+  }a>h4:hover {
+  cursor: pointer;
+}
+
+
   
   .row{
     padding: 0px 5%;
@@ -212,4 +210,29 @@ a>h4:hover {
     margin-left: 5px;
     margin-right: 5px;
   }
+}
+
+@media (max-width: 500px){
+	#window{
+		min-width:270px;
+		margin-right: auto;
+	}
+}
+
+@media (max-height: 628px){
+	#window{
+		margin-top: 0px;
+	}	
+}
+
+@media (min-height: 688px){
+	#window{
+		margin-top: 30px;
+	}	
+}
+
+@media (min-height: 860px){
+	#window{
+		margin-top: 200px;
+	}	
 }
