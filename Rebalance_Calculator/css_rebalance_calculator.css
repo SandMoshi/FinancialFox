@@ -35,18 +35,6 @@ form{
   border-top: medium solid #75C809;
 }
 
-/* Added for this app */
-
-.page{
-	height: 425px; /* prev 500 and before that 410 */
-	padding: 0px 10px;
-    overflow: overlay; /* Makes extra content scroll */
-}
-
-
-
-
-/* ---End of "Added for this app" */
 #top{
     -webkit-box-shadow: 0px -3px 5px 0px rgba(17,60,108,.4);
     -moz-box-shadow: 0px -3px 5px 0px rgba(17,60,108,.4);
@@ -96,8 +84,9 @@ output{
   max-width: 196px;
   width: 70%;
   min-width: 100px;
-  margin: 6px auto 0px auto;
+  margin: 10px auto 0px auto;
   text-align: center;
+  padding: 1px;
 }
 
 #birthdate {
@@ -110,7 +99,7 @@ output{
 .left_side{
   padding-left: 5%;
 /*  border-right: medium dashed #75C809;*/
-  text-align: center;
+  text-align: right;
   padding-bottom: 10px;
   padding-top: 4px;
 }
@@ -256,6 +245,41 @@ a #moreinfo:hover {
 #page1 .instruction {
 	margin-top: 120px;
 }
+
+/* Added for this app */
+
+.page{
+	height: 425px; /* prev 500 and before that 410 */
+	padding: 0px 10px;
+    overflow: overlay; /* Makes extra content scroll */
+}
+
+.itemname{
+  text-align: center;
+}
+
+output{
+  margin-right: 0px;
+  text-align: center;
+}
+input{
+  margin-left: 0px;
+  text-align: center;
+}
+.subinstruction{
+  	color: white;
+	font-size: 1em;
+	text-align: center;
+    margin-top: -10px;
+    margin-bottom: 1px;
+}
+
+#page2 input{
+  margin-left: auto;
+}
+
+/* ---End of "Added for this app" */
+
 
 @media (max-width:800px){
   #window{

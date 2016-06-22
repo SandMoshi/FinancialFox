@@ -2,17 +2,106 @@
 $(document).ready(function () {
 	
 	var page = 1 //Set the page to 1
+    console.log("On initialization the page number is: " + page);
 	
 	$("#continue").click(function(){
-		if (page = 1){
+        console.log("Continue was clicked, the page when clicked is: " + page);
+		if (page === 1){
 			CreatePage2();
 		}
+        if (page === 2){
+            CreatePage3();
+        }
+        if (page === 3){
+            CreatePage4();
+        }
 		var oldpage = page; //store the current page number
+        console.log("var oldpage = " + oldpage);
 		page += 1; //Increase page number
 		TurnPage(oldpage, page); //Run the function that chances the page
 	});
 	
-    
+    //----------------------------
+
+function TurnPage(oldpage, nextpage ){
+	var pageIdOld = "#page" + oldpage; //create ID that will be used to call the page
+	var pageId = "#page" + nextpage;
+	
+	$(pageIdOld).fadeOut("400", function(){
+		$(pageId).fadeIn("400");
+	});
+};
+
+function CreatePage2(){
+	//Determine number of items
+	var items = $("#itemcounter").val();
+	for (i=1; i <= items; i++){
+		var idname = "item_name" + i;
+		var DOMcode = "<input id=" + idname + " type=\"text\" class=\"itemname\" placeholder=\"Name of Item " + i + "\" title=\"Give this item a nickname. (Optional)\">";
+		$(DOMcode).appendTo("#page2");
+	}
+	//If too many items, show the scroll message
+	if (items >= 9){ 
+		$("#scrollicon").css({"display":"block","position": "absolute", "bottom": "70px", "right": "35px", "color": "red"});	
+	}
+    return;
+};
+//----------------------------
+function CreatePage3(){
+  //Determine the desired percentages
+  var items = $("#itemcounter").val();
+	for (i=1; i <= items; i++){
+        //Show the items with names
+        var tempid = "item_name" + i;
+        var givenname = $("#" + tempid).val();
+        console.log("given name for item " + i + "is: " + givenname);
+        var DOMcode = "<output id=" + tempid + "output\" type=\"text\" class=\"itemname\" title=\"Label for Item " + i + " which is known as " + givenname +"\">" + givenname + "</output>";
+		$(DOMcode).appendTo("#page3leftside");
+      
+      
+        //Add the inputs for desired percentages
+		var idname = "item_percent" + i;
+		var DOMcode = "<input id=" + idname + " type=\"number\" min=\"0\" max=\"100\" class=\"itempercent\" placeholder=\"Item " + i + " Percentage\" title=\"What % of a balanced portfolio would you like this item to be?\" required />";
+		$(DOMcode).appendTo("#page3rightside");
+	}
+   
+	//If too many items, show the scroll message
+	if (items >= 8){ 
+		$("#scrollicon").css({"display":"block","position": "absolute", "bottom": "70px", "right": "35px", "color": "red"});	
+	}
+    return;
+}
+//----------------------------/
+
+function CreatePage4(){
+  //Determine the curent
+  var items = $("#itemcounter").val();
+	for (i=1; i <= items; i++){
+        //Show the items with names
+        var tempid = "item_name" + i;
+        var givenname = $("#" + tempid).val();
+        console.log("given name for item " + i + "is: " + givenname);
+        var DOMcode = "<output id=" + tempid + "output\" type=\"text\" class=\"itemname\" title=\"Label for Item " + i + " which is known as " + givenname +"\">" + givenname + " </output>";
+		$(DOMcode).appendTo("#page4leftside");
+      
+      
+        //Add the inputs for desired percentages
+		var idname = "item_value" + i;
+		var DOMcode = "<input id=" + idname + " type=\"number\" min=\"0\" class=\"itempercent\" placeholder=\"$0.00\" title=\"What is the current value of this item? (" + givenname + ")\" required />";
+		$(DOMcode).appendTo("#page4rightside");
+	}
+   
+	//If too many items, show the scroll message
+	if (items >= 8){ 
+		$("#scrollicon").css({"display":"block","position": "absolute", "bottom": "70px", "right": "35px", "color": "red"});	
+	}
+    return;
+}
+//----------------------------
+//----------------------------
+//----------------------------
+//----------------------------
+//----------------------------
 	
 	
     UpdateText(); //This will update the app text to show the proper current year 
@@ -326,7 +415,7 @@ function UpdateMessage(val){
 }
 
 
-
+$(document).ready(function () {
 //This will make the disclaimer popup
    document.getElementById("Disclaimer").onclick = function () {
        sweetAlert({title:"", text:"This is an unofficial calculator, it is the user's responsibility to ensure the calculations are accurate.\n\nThe user is responsible for confirming the accuracy of this program's results. It is the user's responsibility to verify the most up to date TFSA limits with the CRA (Canada Revenue Agency) before making any decisions. This tool is meant to be used as an educational tool only. From time to time, this application may become outdated as the years or laws change. It is the user's responsibilty to double check the numbers given by this tool.\n\nThis tool does not take into account overcontributions, fees, or any data not inputted.\n\nBy using this website and all the tools and information found within, the user agrees that FinancialFox.ca and it's operators are not responsible or liable for anything.\n\nCreated for www.financialfox.ca \u00A9 2016",allowOutsideClick: "true", allowEscapeKey:"true",})
@@ -334,37 +423,5 @@ function UpdateMessage(val){
    document.getElementById("DisclaimerText").onclick = function () {
        sweetAlert({title:"", text:"This is an unofficial calculator, it is the user's responsibility to ensure the calculations are accurate.\n\nThe user is responsible for confirming the accuracy of this program's results. It is the user's responsibility to verify the most up to date TFSA limits with the CRA (Canada Revenue Agency) before making any decisions. This tool is meant to be used as an educational tool only. From time to time, this application may become outdated as the years or laws change. It is the user's responsibilty to double check the numbers given by this tool.\n\nThis tool does not take into account overcontributions, fees, or any data not inputted.\n\nBy using this website and all the tools and information found within, the user agrees that FinancialFox.ca and it's operators are not responsible or liable for anything.\n\nCreated for www.financialfox.ca \u00A9 2016", allowOutsideClick: "true", allowEscapeKey:"true",})
    };
-//----------------------------
+});
 
-function TurnPage(oldpage, nextpage ){
-	var pageIdOld = "#page" + oldpage; //create ID that will be used to call the page
-	var pageId = "#page" + nextpage;
-	
-	$(pageIdOld).fadeOut("400", function(){
-		$(pageId).fadeIn("400");
-	});
-};
-
-function CreatePage2(){
-	//Determine number of items
-	var items = $("#itemcounter").val();
-	for (i=1; i <= items; i++){
-		var idname = "item_name" + i;
-		var DOMcode = "<input id=" + idname + " type=\"text\" class=\"itemname\" placeholder=\"Name of Item " + i + "\" title=\"Give this item a nickname. (Optional)\" />";
-		$(DOMcode).appendTo("#page2");
-	}
-	//If too many items, space them out into 2 columns
-	if (items >= 9){ 
-		$("#scrollicon").css({"display":"block","position": "absolute", "bottom": "70px", "right": "35px", "color": "red"});
-		
-	}
-	
-}
-
-
-//----------------------------
-//----------------------------
-//----------------------------
-//----------------------------
-//----------------------------
-//----------------------------

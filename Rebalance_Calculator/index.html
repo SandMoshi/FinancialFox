@@ -36,86 +36,44 @@
 			<p class="instruction">Please give each item a name:</p>
 			<p id="scrollicon" style="display:none;">Scroll Down</p>
 	    </fieldset>
-		<button id="continue" type="button" class="btn btn-info continue">Next</button>
-<!--     --- BOTTOM HALF --- HIDDEN INITIALLY --- BOTTOM HALF  --- BOTTOM HALF --- HIDDEN INITIALLY --- BOTTOM HALF -->
-                    <!-- <div class="col-xs-7 left_side">
-              <label for="birthdate">Birthdate:</label>
-               <label for="ContributionsToDate">TFSA Deposits to Date:</label>
-               <label for="WithdrawalsToDate">TFSA Withdrawals to date:</label>
-               <label for="ContributionsThisYear" id="thisyear1" class="thisyear">---- TFSA Deposits:</label>
-               <label for="WithdrawalsThisYear" id="thisyear2">---- TFSA Withdrawals:</label>
+        <!-- Page 3 -->
+  	    <fieldset id="page3" class="page" style="display:none; display:none;">
+			<p class="instruction">What are your desired targets?</p>
+            <p class="subinstruction">(As % of overall portfolio)</p>
+			<p id="scrollicon" style="display:none;">Scroll Down</p>
+            <div class="row">
+                <div id="page3leftside" class=".left-side col-xs-6">
+                </div>
+                <div id="page3rightside" class=".right-side col-xs-6">
+                </div>
             </div>
-          <div class="col-xs-5 right_side">
-              <input type="date" id="birthdate" name="birthdate"  class="input_date"
-                           title="Enter your birthdate. It is used to determine TFSA eligibility.">
-               <br>
-               <span class="currency">$</span>
-               <input type="number" min="0" value="0" step="1"
-                           class="input_money"
-                           id="ContributionsToDate"
-                           name="ContributionsToDate"
-                           title="Enter the total amount of contributions you have ever made into your TFSA.
-                       If you have multiple TFSA accounts, sum up all your contributions." />
-               <br>
-               <span class="currency">$</span>
-               <input type="number" min="0" value="0" step="1"
-                           class="input_money"
-                           id="WithdrawalsToDate"
-                           name="WithdrawalsToDate"
-                           title="Enter the total amount of withdrawals you have ever taken from your TFSA.
-                       If you have multiple TFSA accounts, sum up all your withdrawals." />
-               <br>
-               <span class="currency">$</span>
-               <input type="number" min="0" value="0" step="1"
-                           class="input_money"
-                           id="ContributionsThisYear"
-                           name="ContributionsThisYear"
-                           title="Enter the amount of contributions you have made into your TFSA during the current calendar year.
-                                The amount in Step 2 should have also included this amount.
-                                If you have multiple TFSA accounts, sum up all your contributions."  />
-               <br>
-               <span class="currency">$</span>
-               <input type="number" min="0" value="0" step="1"
-                           class="input_money"
-                           id="WithdrawalsThisYear"
-                           name="WithdrawalsThisYear"
-                           title="Enter the amount of withdrawals you have taken from your TFSA during the current calendar year.
-                                The amount in Step 3 should have also included this amount.
-                                If you have multiple TFSA accounts, sum up all your withdrawals."
-                      />
-               <br>
-            
-          </div>
-        </div> -->
-        <fieldset id="bottom">  
-         <div class="row">
-          <div class="col-xs-8 col-sm-7 left_side">
-             <label for="output_MaxTFSA">Starting TFSA Limit:</label>
-             <label for="output_TFSAlimit" id="thisyear3">---- Remaining Contribution Room:</label>
-             <label for="output_TFSAfuture" id="nextyear1">---- Contribution Room:</label>
-          </div>
-          <div class="col-xs-4 col-sm-5 right_side">
-             <output name="output_MaxTFSA" type="text"
-                               class="output"
-                               id="output_MaxTFSA"
-                               title="Your starting TFSA amount if you have never contributed to a TFSA"
-                               readonly></output>
-             <output name="output_TFSAlimit" type="text"
-                               class="output"
-                               id="output_TFSAlimit"
-                               title="The contribution room available in the TFSA currently. You can contribute up to this amount penalty free." readonly></output>
-             <output name="output_TFSAfuture" class="output"
-                               id="output_TFSAfuture"
-                               title="The contribution room that will be available at the start of the next calendar year. Assumes no other withdrawals or contributions are made for the remainder of this year." readonly></output>
-          </div>
-         </div>
-           <h2 id="outputmessage">
-             You can contribute $--- more this year!</h2>
-          <a id="moreinfo" href="http://www.cra-arc.gc.ca/tfsa/" target="_blank"><h4>For more TFSA details click here.</h4></a>
-        </fieldset>
-		
+	    </fieldset>
+        <fieldset id="page4" class="page" style="display:none; display:none;">
+			<p class="instruction">How much is each item currently worth?</p>
+            <p class="subinstruction">(Dollar Amounts Only)</p>
+			<p id="scrollicon" style="display:none;">Scroll Down</p>
+            <div class="row">
+                <div id="page4leftside" class=".left-side col-xs-6">
+                </div>
+                <div id="page4rightside" class=".right-side col-xs-6">
+                </div>
+            </div>
+	    </fieldset>
         
-		<button id="calculate" type="button" class="btn btn-info calculate">Calculate</button>
+        <fieldset id="page5" class="page" style="display:none; display:none;">
+			<p class="instruction">Are You Investing More Money?</p>
+            <p class="subinstruction">(Dollar Amount to be Invested)</p>
+			<p id="scrollicon" style="display:none;">Scroll Down</p>
+            <input id="item_investing" type="number" min="0"></input>
+	    </fieldset>
+        
+        <fieldset id="page6" class="page" style="display:none; display:none;">
+			<p class="instruction">How much is each item currently worth?</p>
+            <p class="subinstruction">(Dollar Amounts Only)</p>
+			<p id="scrollicon" style="display:none;">Scroll Down</p>
+	    </fieldset>
+		<button id="continue" type="button" class="btn btn-info continue">Next</button>
+<!--		<button id="calculate" type="button" class="btn btn-info calculate">Calculate</button>-->
 		<h4 id="DisclaimerText">Disclaimer</h4>
 		<img id="Disclaimer" src="../images/info.svg" alt="Disclaimer" title="disclaimer">
 
