@@ -14,10 +14,10 @@ form{
   margin: 0px;
 }
 
-#banner_top > h1 {
+h1 {
   font-family: 'Pacifico', cursive;
   color: white;
-  font-size: 36px;
+  font-size: 40px;
   margin-left: 10px;
 }
 
@@ -68,7 +68,7 @@ select, input {
   border-radius: 5px;
   width: 70%;
   max-width: 196px;
-  min-width: 100px;
+  min-width: 160px;
   display: block;
   margin: auto;
   margin-top: 10px;
@@ -83,7 +83,7 @@ output{
   border-radius: 5px;
   max-width: 196px;
   width: 70%;
-  min-width: 100px;
+  min-width: 160px;
   margin: 10px auto 0px auto;
   text-align: center;
   padding: 1px;
@@ -96,9 +96,9 @@ output{
   text-align: end;
 }
 
-.left_side{
+/*.left_side{
   padding-left: 5%;
-/*  border-right: medium dashed #75C809;*/
+  border-right: medium dashed #75C809;
   text-align: right;
   padding-bottom: 10px;
   padding-top: 4px;
@@ -109,7 +109,7 @@ output{
   text-align: center;
   padding-bottom: 10px;
   padding-top: 4px;
-}
+}*/
 
 .currency{
   color: white;
@@ -123,7 +123,7 @@ output{
 
 input[type='number']{
   padding-left: 5px;
-  text-align:left;
+  text-align:center;
 }
 
 #bottom {
@@ -165,7 +165,7 @@ input[type="checkbox"]{
   display: none;
 }
 
-.continue {
+.continue, .calculate {
   position: absolute;
   right: 10px;
   bottom: 0px;
@@ -189,8 +189,8 @@ h4, h3{
 
 #subbanner{
    text-align: left;
-   margin-left: 55px;
-   margin-top: -10px;
+   margin-left: 30px;
+   margin-top: -8px;
 }
 
 #OutputMessage {
@@ -201,7 +201,7 @@ h4, h3{
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
-  color: #75C809;
+/*  color: #75C809;*/
 }
 
 #Disclaimer {
@@ -236,13 +236,19 @@ a #moreinfo:hover {
     left: 50%;
     margin-left: -45.5px;
     width: 91px;
+	 min-width: 91px;
     text-align: center;
-	height: 50px;
+	 height: 50px;
     font-size: 2em;
     font-weight: 600;
+	 padding-left: 22px;
 }
 
 #page1 .instruction {
+/*	margin-top: 120px;*/
+	margin-top: 20px;
+}
+#page1 h3 {
 	margin-top: 120px;
 }
 
@@ -251,7 +257,8 @@ a #moreinfo:hover {
 .page{
 	height: 425px; /* prev 500 and before that 410 */
 	padding: 0px 10px;
-    overflow: overlay; /* Makes extra content scroll */
+   overflow: overlay; /* Makes extra content scroll */
+	overflow-x: hidden;
 }
 
 .itemname{
@@ -262,6 +269,11 @@ output{
   margin-right: 0px;
   text-align: center;
 }
+
+.item_buysell{
+	margin-right: auto;
+}
+
 input{
   margin-left: 0px;
   text-align: center;
@@ -278,6 +290,14 @@ input{
   margin-left: auto;
 }
 
+#scrollicon{
+	 display: block;
+    position: absolute;
+    bottom: 70px;
+    right: 35px;
+    color: red;
+}
+
 /* ---End of "Added for this app" */
 
 
@@ -285,66 +305,65 @@ input{
   #window{
     margin-top: 10px;
   }
-  #birthdate{
-  }
 }
 
 @media (max-width:550px){
-  #window{
+	#window{
     min-width: 320px;
     width: 100vw;
     margin: auto;
-/*    margin: 0px;*/
   }
-  
-  .left_side{
+	.left_side{
     padding: 0px;
   }
-  .right_side{
-    padding: 0px 5px 0px 5px;
+	.right_side{
+    padding: 0px 2px 0px 2px;
     text-align: left;
   }
-  .calculate{
+	.calculate{
     margin-bottom: 40px;
   }
-  #DisclaimerText{
-    bottom: -40px;
+	#DisclaimerText{
+    bottom: -8px;
   }
-  #Disclaimer{ 
-    bottom: -29px;
+	#Disclaimer{ 
+		
   }
-  #birthdate{
-    margin-left: -59px;
-    min-width: 171px;
-    padding-left: 5px;
+	input{
+    width: 100%;
+	 min-width: 90px;
+	 margin-top: 6px;
+	 font-size: 14px;
+	 line-height: 30px;
   }
-  input{
-    width: 90px;
-    margin-left: -25px;
-  }
-  label{
+	label{
     font-weight: 400;
   }
-  .currency{
+	.currency{
     margin-right: 16px;
     padding: 9px 8px 7px 8px;
   }
   
-  output{
-/*    padding-left: 5px;*/
+	output{
     text-align: center;
-    margin: 6px 5px 0px 0px;
+    margin: 6px auto 0px auto;
     font-size: 14px;
+	 line-height: 30px;
     min-width: 88px;
+	 width: 100%;
   }
-  h2{
+	h1{
+		font-size: 34px;
+  }
+	h2{
     font-size: 20px;
   }
-  
-  #bottom .right_side{
-    padding-left: 0px;
+	#subbanner{
+   text-align: left;
+   margin-left: 44px;
+   margin-top: -8px;
+	font-size: 14px;
   }
-  
 }
 
 
@@ -362,4 +381,33 @@ input{
   body{
     font-size: 12px;
   }
+  #DisclaimerText{
+    bottom: -7px;
+  }
+}
+
+@media (max-height:480px){
+	#window{
+		height: 480px;
+		min-height: 480px;
+	}
+	form{
+		height: 385px;
+		min-height: 380px;
+	}
+	.page{
+		height: 330px;
+	}
+	.continue, .calculate{
+		margin-bottom: 5px;
+		margin-right: 5px;
+		width: 100px;
+	}
+	#page1 h3{
+		margin-top:  60px;
+	}
+	p#scrollicon{
+    bottom: 22px !important; 
+    left: 120px !important;
+	}
 }
