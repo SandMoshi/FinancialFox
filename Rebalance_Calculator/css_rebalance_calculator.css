@@ -364,6 +364,9 @@ input{
    margin-top: -8px;
 	font-size: 14px;
   }
+	#itemcounter{
+		padding: 1px;
+	}
 }
 
 
@@ -384,9 +387,10 @@ input{
   #DisclaimerText{
     bottom: -7px;
   }
+  
 }
 
-@media (max-height:480px){
+@media (max-height:568px){
 	#window{
 		height: 480px;
 		min-height: 480px;

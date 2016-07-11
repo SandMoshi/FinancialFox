@@ -1,41 +1,123 @@
 // JavaScript source code
+// Code that determines what fancybox does for the portfolio app
 
-
-
-$(document).ready(function () {
-    $(".fancybox").fancybox({
-        type: 'image',
-        width: '930px',
-        height: '600px',
-        transitionIn: 'none',
-        transitionOut: 'none',
-        type: 'iframe',
-        padding: 0,
-        title: null,
-        helpers: {
-            overlay: { 'closeClick': false
-        }},
-
-        keys: {
-            close: null //prevent ESC from closing it
-        },
-        afterShow: function () {
-            $(".fancybox-close").unbind();
-            $(".fancybox-close").click(function () { // create own click event
-                sweetAlert({
-                    title: "Are You Sure You want to Close?",
-                    text: "All your data will be lost.",
-                    confirmButtonText: "Yes, Exit.",
-                    showCancelButton: true,
-                    type: "warning",
-                },
-                   function () {
-                       $.fancybox.close();
-                   });
-            });
-        }
-    });
+if($(window).width() <= 375){
+ $(".fancybox_portfolio").fancybox({
+    autoDimensions: false,
+    padding      : 0,
+    margin: 0,
+    width        : '100%',
+//    height       : '100%',
+    autoScale     : false,
+    fitToView : true,
+    autoSize : false,
+    transitionIn  : 'none',
+    transitionOut : 'none',
+    type: 'iframe',
+    title: null,
+    helpers: {
+        overlay: { 'closeClick': true }
+    },
+    keys: {
+        close: null //prevent ESC from closing it
+    },
+    afterShow: function () {
+        $(".fancybox-close").unbind();
+        $(".fancybox-close").click(function () { // create own click event
+            sweetAlert({
+                title: "Are You Sure You want to Close?",
+                text: "All your data will be lost.",
+                confirmButtonText: "Yes, Exit.",
+                showCancelButton: true,
+                type: "warning",
+            },
+               function () {
+                   $.fancybox.close();
+               });
+        });
+    }
 });
+ 
+}
+else if($(window).width() < 992){
+ $(".fancybox_portfolio").fancybox({
+    autoDimensions: false,
+    padding      : 0,
+    width        : '100%',
+    height       : '620',
+    autoScale     : false,
+    fitToView : true,
+    autoSize : false,
+    transitionIn  : 'none',
+    transitionOut : 'none',
+    type: 'iframe',
+//    padding: 1,
+    title: null,
+    helpers: {
+        overlay: { 'closeClick': false }
+    },
+    keys: {
+        close: null //prevent ESC from closing it
+    },
+    afterShow: function () {
+        $(".fancybox-close").unbind();
+        $(".fancybox-close").click(function () { // create own click event
+            sweetAlert({
+                title: "Are You Sure You want to Close?",
+                text: "All your data will be lost.",
+                confirmButtonText: "Yes, Exit.",
+                showCancelButton: true,
+                type: "warning",
+            },
+               function () {
+                   $.fancybox.close();
+               });
+        });
+    }
+});
+ 
+}
+else{ $(".fancybox_portfolio").fancybox({
+    autoDimensions: false,
+    padding      : 0,
+    width        : '100%',
+    height       : '100%',
+	 maxHeight   : 900,
+    autoScale     : false,
+    fitToView : false,
+    autoSize : false,
+    transitionIn  : 'none',
+    transitionOut : 'none',
+    type: 'iframe',
+//    padding: 1,
+    title: null,
+    helpers: {
+        overlay: { 'closeClick': false }
+    },
+    keys: {
+        close: null //prevent ESC from closing it
+    },
+    afterShow: function () {
+        $(".fancybox-close").unbind();
+        $(".fancybox-close").click(function () { // create own click event
+            sweetAlert({
+                title: "Are You Sure You want to Close?",
+                text: "All your data will be lost.",
+                confirmButtonText: "Yes, Exit.",
+                showCancelButton: true,
+                type: "warning",
+            },
+               function () {
+                   $.fancybox.close();
+               });
+        });
+    }
+ });
+}
+// -------------------------------------------------------
+// ^^ END OF Portfolio Portion ^^
+// -------------------------------------------------------
+
 
 // JavaScript source code
 $(document).ready(function () {
@@ -74,37 +156,6 @@ $(document).ready(function () {
     });
 });
 
-/*$(".fancybox_TFSA").fancybox({
-    //type: 'image',
-    width: "520",
-    height: "725",
-    transitionIn: 'none',
-    transitionOut: 'none',
-    type: 'iframe',
-    padding: 0,
-    title: null,
-    helpers: {
-        overlay: { 'closeClick': false }
-    },
-    keys: {
-        close: null //prevent ESC from closing it
-    },
-    afterShow: function () {
-        $(".fancybox-close").unbind();
-        $(".fancybox-close").click(function () { // create own click event
-            sweetAlert({
-                title: "Are You Sure You want to Close?",
-                text: "All your data will be lost.",
-                confirmButtonText: "Yes, Exit.",
-                showCancelButton: true,
-                type: "warning",
-            },
-               function () {
-                   $.fancybox.close();
-               });
-        });
-    }
-});*/
 
 $(".fancybox_FuelSavings").fancybox({
     //type: 'image',
