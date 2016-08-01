@@ -90,7 +90,7 @@ $(document).ready(function () {
         net_contributions = contributions - withdrawals;
             console.log("Net Contributions to Date: " + net_contributions);  //console
         year_net_contributions = year_contribution - year_withdrawal;
-            console.log("This Year's Net Contributions: " + net_contributions);  //console
+            console.log("This Year's Net Contributions: " + year_net_contributions);  //console
         //----Calculate some time dependent variables
         YSI = thisYear - 2008; //Use 2008 beacuse this way it accounts for 2009 as a year you can contribute
         Age = thisYear - YEAR;
@@ -179,13 +179,16 @@ $(document).ready(function () {
             return;
         }
         else if (withdrawals > contributions) {
+			  alert ("withdraws are greater than deposits");
             sweetAlert({
                 title: "Possible Over-Withdrawal!",
                 text: "Your withdrawal amount exceeds your total contributions. \n\nThis may be a result of your contributions growing while in the TFSA which is normal. \n\nPlease check your numbers and click OK to continue.",
                 type: "warning",
             });
         }
-        else if (year_net_contributions > net_contributions) {
+        else if (year_net_contributions > contributions) {
+			   console.log("year net contributions are "+ year_net_contributions);
+			   console.log("total net contributions are "+ net_contributions);
             sweetAlert({
                 title: "Careful!",
                 text: "Your contributions this year are more than your \ntotal net contributions. \n\nHowever, this is possible in certain situations. \nPlease check your numbers... \n\nContinue if they are correct.",
@@ -284,17 +287,6 @@ function DropDown(){
     }
 	
 };
-
-
-//--------------------
-//  //This will make the middle section appear once Calculate is clicked
-//  $("#calculate").on("click", function(){
-//    if ( $("#bottom").is(":hidden")){
-//        $("#bottom").slideDown("slow");
-//        $("#window").css("margin-top","11vh");
-//    }
-//  });
-
 
 function UpdateText(){
           var now  = new Date();
